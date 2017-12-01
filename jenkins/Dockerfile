@@ -59,3 +59,7 @@ COPY jenkins.sh /usr/local/bin/jenkins.sh
 ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 # from a derived Dockerfile, can use `RUN plugins.sh active.txt` to setup /usr/share/jenkins/ref/plugins from a support bundle
 COPY plugins.sh /usr/local/bin/plugins.sh
+
+FROM tomcat:8.0
+MAINTAINER Soundararajan Mani <soundararajan.mani@gmail.com>
+COPY tomcat-users.xml /usr/local/tomcat/conf/tomcat-users.xml
